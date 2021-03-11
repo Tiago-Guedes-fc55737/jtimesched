@@ -69,7 +69,7 @@ public class Project {
 	}
 	
 	public Date getTimeCreated() {
-		return timeCreated;
+		return (Date) timeCreated.clone();
 	}
 	
 	public Date getTimeStart() {
@@ -125,7 +125,7 @@ public class Project {
 		
 		this.running = true;
 	}
-	
+
 	public void pause() throws ProjectException {
 		if (!this.isRunning())
 			throw new ProjectException("Timer not running");
@@ -188,7 +188,8 @@ public class Project {
 		
 		this.secondsToday = secondsToday;
 	}
-	
+
+	//Selecionada
 	public void adjustSecondsToday(int secondsToday) {
 		if (secondsToday < 0)
 			secondsToday = 0;

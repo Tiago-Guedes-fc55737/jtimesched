@@ -58,20 +58,22 @@ public class TimeCellRenderer extends JLabel implements TableCellRenderer {
 					null);
 			break;
 		}
-		
-		if (prj.isRunning()) {
-			tcc.setFont(tcc.getFont().deriveFont(Font.BOLD));
-			tcc.setBackground(CustomCellRenderer.COLOR_RUNNING);
-		} else {
-			tcc.setFont(tcc.getFont().deriveFont(Font.PLAIN));
-			
-			if (isSelected) {
-				tcc.setBackground(table.getSelectionBackground());
+
+		if(tcc!=null){
+			if (prj.isRunning()) {
+				tcc.setFont(tcc.getFont().deriveFont(Font.BOLD));
+				tcc.setBackground(CustomCellRenderer.COLOR_RUNNING);
 			} else {
-				tcc.setBackground(table.getBackground());
+				tcc.setFont(tcc.getFont().deriveFont(Font.PLAIN));
+
+				if (isSelected) {
+					tcc.setBackground(table.getSelectionBackground());
+				} else {
+					tcc.setBackground(table.getBackground());
+				}
 			}
 		}
-		
+
 		return tcc;
 	}
 }

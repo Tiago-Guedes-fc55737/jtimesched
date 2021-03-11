@@ -43,8 +43,8 @@ public class JTimeSchedApp {
 	static public final String LOCK_FILE = CONF_PATH + "jTimeSched.lock";
 	static public final String LOG_FILE = CONF_PATH + "jTimeSched.log";
 	
-	static private Logger LOGGER;
-	
+	static private Logger LOGGER = Logger.getLogger("JTimeSched");
+
 	/**
 	 * Application's entry point.
 	 * 
@@ -90,6 +90,7 @@ public class JTimeSchedApp {
 		// open main frame
 		new JTimeSchedFrame();
 	}
+
 
 	/**
 	 * Determines and returns the application's version, which is set in the Manifest file in attribute "ImplementationVersion".

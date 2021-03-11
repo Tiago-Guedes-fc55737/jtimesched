@@ -195,7 +195,8 @@ public class ProjectTableModel extends AbstractTableModel {
 		
 		this.fireTableRowsUpdated(row, row);
 	}
-	
+
+
 	public void addProject(Project p) {
 		this.arPrj.add(p);
 		this.fireTableRowsInserted(this.getRowCount() -1, this.getRowCount() -1);
@@ -203,14 +204,18 @@ public class ProjectTableModel extends AbstractTableModel {
 		JTimeSchedApp.getLogger().info("Created new project");
 	}
 
+	//Selecionada
 	public void removeProject(int row) {
 		Project p = this.getProjectAt(row);
 		this.arPrj.remove(p);
 		this.fireTableRowsDeleted(row, row);
+
 		
-		JTimeSchedApp.getLogger().info(String.format("Removed project '%s' (time overall: %s, time today: %s)",
-				p.getTitle(),
-				ProjectTime.formatSeconds(p.getSecondsOverall()),
-				ProjectTime.formatSeconds(p.getSecondsToday())));
+		JTimeSchedApp.getLogger().info(String.format("Removed project '%s' (time overall: %s, time today: %s)", p.getTitle(), ProjectTime.formatSeconds(p.getSecondsOverall()), ProjectTime.formatSeconds(p.getSecondsToday())));
+	}
+
+
+	public ArrayList<Project> getArPrj() {
+		return arPrj;
 	}
 }

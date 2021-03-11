@@ -146,7 +146,7 @@ public class ColorDialog extends JDialog implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		JButton btn = (JButton) e.getSource();
 		
-		if (e.getActionCommand() == NOCOLOR) {
+		if (e.getActionCommand().equals(NOCOLOR)) {
 			this.selectedColor = null;
 		} else if (e.getActionCommand() == CHOOSER) {
 			Color chosenColor = JColorChooser.showDialog(ColorDialog.this,

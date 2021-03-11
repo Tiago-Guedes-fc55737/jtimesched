@@ -32,7 +32,8 @@ public class ProjectTime {
 	public static String formatSeconds(int s) {
 		return String.format("%d:%02d:%02d", s/3600, (s%3600)/60, (s%60));
 	}
-	
+
+	//Selecionada
 	public static int parseSeconds(String strTime) throws ParseException {
 		 Pattern p = Pattern.compile("(\\d+):([0-5]?\\d):([0-5]?\\d)");	// 0:00:00
 		 Matcher m = p.matcher(strTime);

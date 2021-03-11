@@ -63,7 +63,7 @@ public class ProjectSerializer {
 		SAXTransformerFactory tf = (SAXTransformerFactory) SAXTransformerFactory.newInstance();
 		
 		// http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6296446
-		tf.setAttribute("indent-number", new Integer(4));
+		tf.setAttribute("indent-number", 4);
 
 		TransformerHandler hd = tf.newTransformerHandler();
 		Transformer serializer = hd.getTransformer();
@@ -83,8 +83,8 @@ public class ProjectSerializer {
 		  
 		  addXmlElement(hd, "title", null, p.getTitle());
 		  addXmlElement(hd, "notes", null, p.getNotes());
-		  addXmlElement(hd, "created", null, new Long(p.getTimeCreated().getTime()));
-		  addXmlElement(hd, "started", null, new Long(p.getTimeStart().getTime()));
+		  addXmlElement(hd, "created", null, p.getTimeCreated().getTime());
+		  addXmlElement(hd, "started", null, p.getTimeStart().getTime());
 		  addXmlElement(hd, "running", null, "no" /*p.isRunning() ? "yes" : "no"*/);
 		  addXmlElement(hd, "checked", null, p.isChecked() ? "yes" : "no");
 		  
