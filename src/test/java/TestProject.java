@@ -18,6 +18,14 @@ public class TestProject {
         project = new Project("test");
     }
 
+
+    /*********************************************/
+    /**                                         **/
+    /**                                         **/
+    /**       TESTES CATEGORY PARTITION         **/
+    /**                                         **/
+    /**                                         **/
+    /*********************************************/
     @Test(expected = ProjectException.class)
     public void testPauseRunningFalse() throws ProjectException {
         project.pause();
@@ -77,6 +85,12 @@ public class TestProject {
         assertEquals("Final seconds today",7, project.getSecondsToday());
     }
 
-
+    /*********************************************/
+    /**                                         **/
+    /**                                         **/
+    /**     FIM TESTES CATEGORY PARTITION       **/
+    /**                                         **/
+    /**                                         **/
+    /*********************************************/
 
 }

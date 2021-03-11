@@ -8,6 +8,13 @@ import static org.junit.Assert.assertEquals;
 public class TestProjectTime {
 
 
+    /*********************************************/
+    /**                                         **/
+    /**                                         **/
+    /**       TESTES CATEGORY PARTITION         **/
+    /**                                         **/
+    /**                                         **/
+    /*********************************************/
 
     @Test(expected = ParseException.class)
     public void testParserSecondsWithNull() throws ParseException {
@@ -43,4 +50,16 @@ public class TestProjectTime {
     public void testParserSecondsWithSecondsBiggerthen59() throws ParseException{
         ProjectTime.parseSeconds("1:32:60");
     }
+
+
+    /*********************************************/
+    /**                                         **/
+    /**                                         **/
+    /**     FIM TESTES CATEGORY PARTITION       **/
+    /**                                         **/
+    /**                                         **/
+    /*********************************************/
+
+
+
 }

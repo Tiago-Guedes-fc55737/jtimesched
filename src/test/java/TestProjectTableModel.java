@@ -30,6 +30,14 @@ public class TestProjectTableModel {
     }
 
 
+    /*********************************************/
+    /**                                         **/
+    /**                                         **/
+    /**       TESTES CATEGORY PARTITION         **/
+    /**                                         **/
+    /**                                         **/
+    /*********************************************/
+
     @Test
     public void testAddProjectExistent() {
         projectTableModel.addProject(project);
@@ -68,5 +76,12 @@ public class TestProjectTableModel {
     }
 
 
+    /*********************************************/
+    /**                                         **/
+    /**                                         **/
+    /**     FIM TESTES CATEGORY PARTITION       **/
+    /**                                         **/
+    /**                                         **/
+    /*********************************************/
 
 }
