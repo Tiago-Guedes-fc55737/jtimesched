@@ -21,9 +21,7 @@ public class TestProject {
 
     /*********************************************/
     /**                                         **/
-    /**                                         **/
     /**       TESTES CATEGORY PARTITION         **/
-    /**                                         **/
     /**                                         **/
     /*********************************************/
     @Test(expected = ProjectException.class)
@@ -87,10 +85,42 @@ public class TestProject {
 
     /*********************************************/
     /**                                         **/
-    /**                                         **/
     /**     FIM TESTES CATEGORY PARTITION       **/
-    /**                                         **/
     /**                                         **/
     /*********************************************/
 
+
+    /*********************************************/
+    /**                                         **/
+    /**      TESTES BOUNDARY VALUE ANALYSIS     **/
+    /**                                         **/
+    /*********************************************/
+
+    @Test
+    public void testAdjustSecondsTodayP1T1(){
+        //Criar valores iniciais
+        project.setSecondsOverall(4);
+        project.setSecondsToday(2);
+
+        project.adjustSecondsToday(-1);
+        assertEquals("Seconds overall",2, project.getSecondsOverall());
+        assertEquals("Seconds today",0, project.getSecondsToday());
+    }
+
+    @Test
+    public void testAdjustSecondsTodayP2T2(){
+        //Criar valores iniciais
+        project.setSecondsOverall(4);
+        project.setSecondsToday(2);
+
+        project.adjustSecondsToday(0);
+        assertEquals("Seconds overall",2, project.getSecondsOverall());
+        assertEquals("Seconds today",0, project.getSecondsToday());
+    }
+
+    /*********************************************/
+    /**                                         **/
+    /**   FIM TESTES BOUNDARY VALUE ANALYSIS    **/
+    /**                                         **/
+    /*********************************************/
 }

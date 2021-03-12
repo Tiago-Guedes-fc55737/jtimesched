@@ -32,9 +32,7 @@ public class TestProjectTableModel {
 
     /*********************************************/
     /**                                         **/
-    /**                                         **/
     /**       TESTES CATEGORY PARTITION         **/
-    /**                                         **/
     /**                                         **/
     /*********************************************/
 
@@ -78,10 +76,42 @@ public class TestProjectTableModel {
 
     /*********************************************/
     /**                                         **/
-    /**                                         **/
     /**     FIM TESTES CATEGORY PARTITION       **/
-    /**                                         **/
     /**                                         **/
     /*********************************************/
 
+
+    /*********************************************/
+    /**                                         **/
+    /**      TESTES BOUNDARY VALUE ANALYSIS     **/
+    /**                                         **/
+    /*********************************************/
+
+    @Test(expected = ProjectException.class)
+    public void testRemoveProjectP1T1(){
+        projectTableModel.removeProject(-1);
+    }
+
+    @Test
+    public void testRemoveProjectP2T2(){
+        projectTableModel.removeProject(0);
+        assertEquals(3,projectTableModel.getArPrj().size());
+    }
+
+    @Test
+    public void testRemoveProjectP2T3(){
+        projectTableModel.removeProject(3);
+        assertEquals(3,projectTableModel.getArPrj().size());
+    }
+
+    @Test(expected = ProjectException.class)
+    public void testRemoveProjectP3T4(){
+        projectTableModel.removeProject(4);
+    }
+
+    /*********************************************/
+    /**                                         **/
+    /**   FIM TESTES BOUNDARY VALUE ANALYSIS    **/
+    /**                                         **/
+    /*********************************************/
 }
