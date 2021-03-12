@@ -114,17 +114,17 @@ public class TestProjectTime {
 
     @Test
     public void testParserSecondsP9T10() throws ParseException {
-        assertEquals( 3692,ProjectTime.parseSeconds("1:1:32"));
+        assertEquals( 3632,ProjectTime.parseSeconds("1:0:32"));
     }
 
     @Test
     public void testParserSecondsP9T11() throws ParseException {
-        assertEquals( 4352,ProjectTime.parseSeconds("1:12:32"));
+        assertEquals( 3632,ProjectTime.parseSeconds("1:00:32"));
     }
 
     @Test(expected = ParseException.class)
     public void testParserSecondsP10T12() throws ParseException {
-        ProjectTime.parseSeconds("1:123:32");
+        ProjectTime.parseSeconds("1:000:32");
     }
 
     @Test(expected = ParseException.class)
@@ -154,17 +154,17 @@ public class TestProjectTime {
 
     @Test
     public void testParserSecondsP15T18() throws ParseException {
-        assertEquals(5521,ProjectTime.parseSeconds("1:32:1"));
+        assertEquals(5520,ProjectTime.parseSeconds("1:32:0"));
     }
 
     @Test
     public void testParserSecondsP15T19() throws ParseException {
-        assertEquals(5532,ProjectTime.parseSeconds("1:32:12"));
+        assertEquals(5520,ProjectTime.parseSeconds("1:32:00"));
     }
 
     @Test(expected = ParseException.class)
     public void testParserSecondsP16T20() throws ParseException {
-        ProjectTime.parseSeconds("1:32:123");
+        ProjectTime.parseSeconds("1:32:000");
     }
 
 
