@@ -35,6 +35,9 @@ public class ProjectTime {
 
 	//Selecionada
 	public static int parseSeconds(String strTime) throws ParseException {
+		if (strTime==null)
+			throw new ParseException("Invalid seconds-string", 0);
+
 		 Pattern p = Pattern.compile("(\\d+):([0-5]?\\d):([0-5]?\\d)");	// 0:00:00 0:0:0
 		 Matcher m = p.matcher(strTime);
 		 

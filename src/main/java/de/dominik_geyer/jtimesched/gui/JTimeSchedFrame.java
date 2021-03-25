@@ -490,7 +490,7 @@ public class JTimeSchedFrame extends JFrame {
     }
 
 
-    public void handleDelete(ProjectTableModel tstm, Project prj, int modelRow) {
+    public void handleDelete(ProjectTableModel tstm, Project prj, int modelRow) throws ProjectException {
 //		int response = JOptionPane.showConfirmDialog(
 //				this,
 //				"Remove project \"" + prj.getTitle() + "\" from list?",
@@ -827,8 +827,13 @@ public class JTimeSchedFrame extends JFrame {
             if (button == MouseEvent.BUTTON1) {	// left button
                 switch (column) {
                     case ProjectTableModel.COLUMN_ACTION_DELETE:
-                        if (e.getClickCount() == 2)
-                            handleDelete(tstm, prj, row);
+                        if (e.getClickCount() == 2) {
+                            try {
+                                handleDelete(tstm, prj, row);
+                            } catch (ProjectException projectException) {
+                                projectException.printStackTrace();
+                            }
+                        }
                         break;
                     case ProjectTableModel.COLUMN_ACTION_STARTPAUSE:
                         handleStartPause(prj);
@@ -939,7 +944,11 @@ public class JTimeSchedFrame extends JFrame {
 
                             // make use of table model's removeProject method
                             while (ptm.getRowCount() > 0) {
-                                ptm.removeProject(0);
+                                try {
+                                    ptm.removeProject(0);
+                                } catch (ProjectException projectException) {
+                                    projectException.printStackTrace();
+                                }
                             }
                             JTimeSchedFrame.this.currentProject = null;
 
@@ -1000,7 +1009,11 @@ public class JTimeSchedFrame extends JFrame {
                     e.consume();
                     break;
                 case KeyEvent.VK_DELETE:
-                    handleDelete(ptm, p, row);
+                    try {
+                        handleDelete(ptm, p, row);
+                    } catch (ProjectException projectException) {
+                        projectException.printStackTrace();
+                    }
                     e.consume();
                     break;
                 default:

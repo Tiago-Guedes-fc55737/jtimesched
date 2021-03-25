@@ -1,9 +1,9 @@
-import de.dominik_geyer.jtimesched.project.ProjectTime;
+package de.dominik_geyer.jtimesched.project;
+
 import org.junit.Test;
-
 import java.text.ParseException;
-
-import static org.junit.Assert.assertEquals;
+import java.util.Date;
+import static org.junit.Assert.*;
 
 public class TestProjectTime {
 
@@ -174,5 +174,46 @@ public class TestProjectTime {
     /**                                         **/
     /*********************************************/
 
+
+
+    /*********************************************/
+    /**                                         **/
+    /**      TESTES PARA AUMENTAR COVERAGE      **/
+    /**                                         **/
+    /*********************************************/
+
+
+    @Test
+    public void testFormateDate(){
+
+        Date tempDate = new Date();
+        tempDate.setTime(312912781);
+
+
+        String expected = "1970-01-04";
+
+        assertEquals(expected, ProjectTime.formatDate(tempDate));
+
+
+    }
+
+    @Test
+    public void testParseDate() throws ParseException {
+
+        Date expectedDate  = new Date();
+        expectedDate.setTime(312912781);
+        expectedDate.setMinutes(0);
+        expectedDate.setHours(0);
+        expectedDate.setSeconds(0);
+
+        assertEquals(expectedDate.toString(),ProjectTime.parseDate("1970-01-04").toString());
+    }
+
+
+    /*********************************************/
+    /**                                         **/
+    /**   FIM TESTES PARA AUMENTAR COVERAGE     **/
+    /**                                         **/
+    /*********************************************/
 
 }
