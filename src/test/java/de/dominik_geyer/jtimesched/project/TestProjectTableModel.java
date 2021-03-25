@@ -356,6 +356,39 @@ public class TestProjectTableModel {
         assertEquals(8,projectTableModel.getColumnCount());
     }
 
+    @Test
+    public void testGetColumnNameActionDelete(){
+        assertEquals("",projectTableModel.getColumnName(0));
+
+    }
+    @Test
+    public void testGetColumnNameCheck(){
+        assertEquals("",projectTableModel.getColumnName(1));
+    }
+    @Test
+    public void testGetColumnNameTitle(){
+        assertEquals("Title",projectTableModel.getColumnName(2));
+    }
+    @Test
+    public void testGetColumnNameColor(){
+        assertEquals("",projectTableModel.getColumnName(3));
+    }
+    @Test
+    public void testGetColumnNameCreated(){
+        assertEquals("Created",projectTableModel.getColumnName(4));
+    }
+    @Test
+    public void testGetColumnNameTimeOverall(){
+        assertEquals("Time Overall",projectTableModel.getColumnName(5));
+    }
+    @Test
+    public void testGetColumnNameTimeToday(){
+        assertEquals("Time Today",projectTableModel.getColumnName(6));
+    }
+    @Test
+    public void testGetColumnNameActionStartPause(){
+        assertEquals("",projectTableModel.getColumnName(7));
+    }
 
 
     /*********************************************/
