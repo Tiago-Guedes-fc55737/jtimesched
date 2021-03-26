@@ -1,14 +1,9 @@
 package de.dominik_geyer.jtimesched;
 
-import de.dominik_geyer.jtimesched.project.Project;
-import de.dominik_geyer.jtimesched.project.ProjectException;
-import org.junit.Before;
 import org.junit.Test;
+import java.util.logging.Logger;
 
-import java.awt.*;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
+import static de.dominik_geyer.jtimesched.JTimeSchedApp.*;
 import static org.junit.Assert.*;
 
 
@@ -22,7 +17,16 @@ public class TestJTimeSchedApp {
     /**                                         **/
     /*********************************************/
 
+//    @Test
+//    public void testGetAppVersion(){
+//        assertEquals("Project version:", "1.2-SNAPSHOT", getAppVersion());
+//    }
 
+    @Test
+    public void testGetLogger(){
+        assertEquals(Logger.class , getLogger().getClass());
+        assertEquals(Logger.getLogger("JTimeSched") , getLogger());
+    }
 
     /*********************************************/
     /**                                         **/
