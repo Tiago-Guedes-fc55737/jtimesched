@@ -1,31 +1,27 @@
 package de.dominik_geyer.jtimesched.misc;
 
-import de.dominik_geyer.jtimesched.project.Project;
-import de.dominik_geyer.jtimesched.project.ProjectException;
-import org.junit.Before;
 import org.junit.Test;
 
-import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
 
 public class TestPlainTextFormatter {
 
+    @Test
+    public void testPlainText(){
+        PlainTextFormatter plainTextFormatter = new PlainTextFormatter();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd (E) HH:mm:ss");
 
-    /*********************************************/
-    /**                                         **/
-    /**      TESTES PARA AUMENTAR COVERAGE      **/
-    /**                                         **/
-    /*********************************************/
+        Date tempDate = new Date();
+        String actual = plainTextFormatter.format(new LogRecord(Level.ALL,"test"));
 
+        String expected = sdf.format(tempDate) + " [" + Level.ALL + "]: " + "test";
 
+        assertEquals(expected.trim(),actual.trim());
 
-    /*********************************************/
-    /**                                         **/
-    /**   FIM TESTES PARA AUMENTAR COVERAGE     **/
-    /**                                         **/
-    /*********************************************/
+    }
 }

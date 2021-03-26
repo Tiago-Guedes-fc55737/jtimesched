@@ -1,14 +1,12 @@
 package de.dominik_geyer.jtimesched;
 
 import org.junit.Test;
+import java.io.*;
+import java.nio.channels.FileLock;
 import java.util.logging.Logger;
-
-import static de.dominik_geyer.jtimesched.JTimeSchedApp.*;
 import static org.junit.Assert.*;
 
-
 public class TestJTimeSchedApp {
-
 
 
     /*********************************************/
@@ -17,15 +15,25 @@ public class TestJTimeSchedApp {
     /**                                         **/
     /*********************************************/
 
-//    @Test
-//    public void testGetAppVersion(){
-//        assertEquals("Project version:", "1.2-SNAPSHOT", getAppVersion());
-//    }
+    @Test(expected = Exception.class)
+    public void testLockInstance() throws IOException {
+        String[] args = null;
+        JTimeSchedApp.main(args);
+        final File file = new File(JTimeSchedApp.LOCK_FILE);
+        final RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        final FileLock fileLock = randomAccessFile.getChannel().tryLock();
+        fileLock.release();
+        randomAccessFile.close();
+        file.delete();
+
+    }
+
 
     @Test
-    public void testGetLogger(){
-        assertEquals(Logger.class , getLogger().getClass());
-        assertEquals(Logger.getLogger("JTimeSched") , getLogger());
+    public void testGetLogger() throws IOException {
+        assertEquals("Verifica se devolve um logger:",Logger.class, JTimeSchedApp.getLogger().getClass());
+        assertEquals("Verifica se devolve o logger correto",Logger.getLogger("JTimeSched"),JTimeSchedApp.getLogger());
+
     }
 
     /*********************************************/

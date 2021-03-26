@@ -1,6 +1,6 @@
 package de.dominik_geyer.jtimesched.project;
 
-import org.junit.Before;
+
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
@@ -10,7 +10,6 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import static org.junit.Assert.*;
 
 public class TestProjectSerializer {
