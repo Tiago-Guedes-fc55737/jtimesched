@@ -282,4 +282,63 @@ public class TestProject {
     /**   FIM TESTES PARA AUMENTAR COVERAGE     **/
     /**                                         **/
     /*********************************************/
+
+    /*********************************************/
+    /**                                         **/
+    /**         TESTES DATAFLOW TESTING         **/
+    /**                                         **/
+    /*********************************************/
+
+    @Test
+    public void testGetSecondsTodayIsRunningTrue(){
+        project.setRunning(true);
+        Date tempDate = new Date();
+        tempDate.setTime(321893012);
+        project.setTimeStart(tempDate);
+        Date currentTime = new Date();
+        int expected = (int) ((currentTime.getTime() - project.getTimeStart().getTime()) / 1000);
+
+        assertEquals(expected,project.getSecondsToday());
+    }
+
+    @Test
+    public void testGetSecondsTodayIsRunningFalse(){
+        project.setRunning(false);
+        Date tempDate = new Date();
+        tempDate.setTime(321893012);
+        project.setTimeStart(tempDate);
+
+        int expected = project.getSecondsTodayForTesting();
+
+        assertEquals(expected,project.getSecondsToday());
+    }
+
+
+    @Test
+    public void testAdjustSecondsTodaySecondsTodayNegative(){
+        project.setSecondsOverall(4);
+        project.setSecondsToday(2);
+        assertEquals("Initial seconds overall",4, project.getSecondsOverall());
+        assertEquals("Initial seconds today",2, project.getSecondsToday());
+        project.adjustSecondsToday(-1);
+        assertEquals("Final seconds overall",2, project.getSecondsOverall());
+        assertEquals("Final seconds today",0, project.getSecondsToday());
+    }
+
+    @Test
+    public void testAdjustSecondsTodaySecondsTodayPositive(){
+        project.setSecondsOverall(4);
+        project.setSecondsToday(2);
+        assertEquals("Initial seconds overall",4, project.getSecondsOverall());
+        assertEquals("Initial seconds today",2, project.getSecondsToday());
+        project.adjustSecondsToday(1);
+        assertEquals("Final seconds overall",3, project.getSecondsOverall());
+        assertEquals("Final seconds today",1, project.getSecondsToday());
+    }
+
+    /*********************************************/
+    /**                                         **/
+    /**      FIM TESTES DATAFLOW TESTING        **/
+    /**                                         **/
+    /*********************************************/
 }

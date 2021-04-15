@@ -197,6 +197,7 @@ public class ProjectTableModel extends AbstractTableModel {
     }
 
 
+
     public void addProject(Project p) {
         if (p != null) {
             this.arPrj.add(p);
@@ -209,9 +210,10 @@ public class ProjectTableModel extends AbstractTableModel {
 
     }
 
-    //Selecionada
+    //selecionada
     public void removeProject(int row) throws ProjectException {
-        if (row < 0 || row > getArPrj().size() - 1) {
+        if (row < 0
+                || row > getArPrj().size() - 1) {
             throw new ProjectException("Invalid Row");
         }
 

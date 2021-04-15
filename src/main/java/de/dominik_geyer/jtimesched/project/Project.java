@@ -148,7 +148,8 @@ public class Project {
 			// I don't care... eat it
 		}
 	}
-	
+
+	//selecionada
 	public int getSecondsToday() {
 		int seconds = this.secondsToday;
 		
@@ -161,7 +162,11 @@ public class Project {
 		
 		return seconds;
 	}
-	
+
+	public int getSecondsTodayForTesting(){
+		return this.secondsToday;
+	}
+
 	public int getSecondsOverall() {
 		int seconds = this.secondsOverall;
 		
@@ -174,13 +179,15 @@ public class Project {
 		
 		return seconds;
 	}
-	
+
+
 	public void setSecondsOverall(int secondsOverall) {
 		if (secondsOverall < 0)
 			secondsOverall = 0;
 		
 		this.secondsOverall = secondsOverall;
 	}
+
 
 	public void setSecondsToday(int secondsToday) {
 		if (secondsToday < 0)
@@ -189,7 +196,7 @@ public class Project {
 		this.secondsToday = secondsToday;
 	}
 
-	//Selecionada
+	//selecionada
 	public void adjustSecondsToday(int secondsToday) {
 		if (secondsToday < 0)
 			secondsToday = 0;

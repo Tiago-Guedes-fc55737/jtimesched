@@ -125,158 +125,132 @@ public class TestProjectTableModel {
     /*********************************************/
 
     @Test
-    public void testgetValueAtColumnActionDelete(){
+    public void testGetValueAtColumnActionDelete(){
         assertFalse((boolean)projectTableModel.getValueAt(0,0));
     }
-
     @Test
-    public void testgetValueAtColumnCheckTrue(){
+    public void testGetValueAtColumnCheckTrue(){
         projectTableModel.getArPrj().get(0).setChecked(true);
         assertTrue((boolean) projectTableModel.getValueAt(0,1));
     }
-
     @Test
-    public void testgetValueAtColumnCheckFalse(){
+    public void testGetValueAtColumnCheckFalse(){
         assertFalse((boolean) projectTableModel.getValueAt(0,1));
     }
-
     @Test
-    public void testgetValueAtColumnTitle(){
+    public void testGetValueAtColumnTitle(){
         assertEquals("1", projectTableModel.getValueAt(0,2));
     }
-
     @Test
-    public void testgetValueAtColumnColor(){
+    public void testGetValueAtColumnColor(){
         assertEquals(null, projectTableModel.getValueAt(0,3));
     }
-
     @Test
-    public void testgetValueAtColumnCreated(){
+    public void testGetValueAtColumnCreated(){
         Date tempDate = new Date();
         projectTableModel.getProjectAt(0).setTimeCreated(tempDate);
 
         assertEquals(tempDate, projectTableModel.getValueAt(0,4));
     }
-
     @Test
-    public void testgetValueAtColumnTimeOverall(){
+    public void testGetValueAtColumnTimeOverall(){
 
         assertEquals(0, projectTableModel.getValueAt(0,5));
     }
-
     @Test
-    public void testgetValueAtColumnTimeToday(){
+    public void testGetValueAtColumnTimeToday(){
 
         assertEquals(0, projectTableModel.getValueAt(0,6));
     }
-
     @Test
-    public void testgetValueAtColumnActionStartPauseRunningTrue(){
+    public void testGetValueAtColumnActionStartPauseRunningTrue(){
         projectTableModel.getArPrj().get(0).setRunning(true);
         assertTrue((boolean) projectTableModel.getValueAt(0,7));
     }
-
     @Test
-    public void testgetValueAtColumnActionStartPauseRunningFalse(){
+    public void testGetValueAtColumnActionStartPauseRunningFalse(){
         assertFalse((boolean) projectTableModel.getValueAt(0,7));
     }
-
     @Test
-    public void testgetValueAtColumnDefault(){
+    public void testGetValueAtColumnDefault(){
         assertEquals("wtf?",projectTableModel.getValueAt(0,9));
     }
+
 
     @Test
     public void testGetColumnClassColumnColor(){
         assertEquals(Color.class , projectTableModel.getColumnClass(3));
     }
-
     @Test
     public void testGetColumnClassColumnCreated(){
         assertEquals(Date.class , projectTableModel.getColumnClass(4));
     }
-
     @Test
     public void testGetColumnClassColumnTimeOverall(){
         assertEquals(Integer.class , projectTableModel.getColumnClass(5));
     }
-
     @Test
     public void testGetColumnClassColumnTimeToday(){
         assertEquals(Integer.class , projectTableModel.getColumnClass(6));
     }
-
     @Test
     public void testGetColumnClassColumnChecked(){
         assertEquals(Boolean.class , projectTableModel.getColumnClass(1));
     }
-
     @Test
     public void testGetColumnClassColumnActionDelete(){
         assertEquals(Boolean.class , projectTableModel.getColumnClass(0));
     }
-
     @Test
     public void testGetColumnClassColumnStartPause(){
         assertEquals(Boolean.class , projectTableModel.getColumnClass(7));
     }
-
     @Test
     public void testGetColumnClassColumnTitle(){
         assertEquals(String.class , projectTableModel.getColumnClass(2));
     }
 
+
     @Test
     public void testIsCellEditableColumnActionDelete(){
         assertFalse(projectTableModel.isCellEditable(0,0));
     }
-
     @Test
     public void testIsCellEditableColumnCheck(){
         assertTrue(projectTableModel.isCellEditable(0,1));
     }
-
     @Test
     public void testIsCellEditableColumnTitle(){
         assertTrue(projectTableModel.isCellEditable(0,2));
     }
-
     @Test
     public void testIsCellEditableColumnColor(){
         assertTrue(projectTableModel.isCellEditable(0,3));
     }
-
     @Test
     public void testIsCellEditableColumnCreated(){
         assertTrue(projectTableModel.isCellEditable(0,4));
     }
-
     @Test
-    public void testIsCellEditableColumnActionTimeOverallRunningFalse(){
+    public void testIsCellEditableColumnTimeOverallRunningFalse(){
         assertTrue(projectTableModel.isCellEditable(0,5));
     }
-
     @Test
-    public void testIsCellEditableColumnActionTimeOverallRunningTrue(){
+    public void testIsCellEditableColumnTimeOverallRunningTrue(){
         projectTableModel.getArPrj().get(0).setRunning(true);
         assertFalse(projectTableModel.isCellEditable(0,5));
     }
-
     @Test
-    public void testIsCellEditableColumnActionTimeTodayRunningFalse(){
+    public void testIsCellEditableColumnTimeTodayRunningFalse(){
         assertTrue(projectTableModel.isCellEditable(0,6));
     }
-
     @Test
-    public void testIsCellEditableColumnActionTimeTodayRunningTrue(){
+    public void testIsCellEditableColumnTimeTodayRunningTrue(){
         projectTableModel.getArPrj().get(0).setRunning(true);
         assertFalse(projectTableModel.isCellEditable(0,6));
     }
 
-    @Test
-    public void testIsCellEditableColumnActionStartPause(){
-        assertFalse(projectTableModel.isCellEditable(0,7));
-    }
+
 
     @Test
     public void testSetValueAtColumnActionDelete(){
@@ -284,7 +258,6 @@ public class TestProjectTableModel {
 
         assertFalse((boolean) projectTableModel.getValueAt(0,0));
     }
-
     @Test
     public void testSetValueAtColumnCheckTrue(){
         projectTableModel.setValueAt(true,0,1);
@@ -292,7 +265,6 @@ public class TestProjectTableModel {
         assertTrue(projectTableModel.getArPrj().get(0).isChecked());
 
     }
-
     @Test
     public void testSetValueAtColumnCheckFalse(){
         projectTableModel.setValueAt(false,0,1);
@@ -300,7 +272,6 @@ public class TestProjectTableModel {
         assertFalse(projectTableModel.getArPrj().get(0).isChecked());
 
     }
-
     @Test
     public void testSetValueAtColumnTitle(){
         projectTableModel.setValueAt("Teste",0,2);
@@ -308,7 +279,6 @@ public class TestProjectTableModel {
         assertEquals("Teste",projectTableModel.getArPrj().get(0).getTitle());
 
     }
-
     @Test
     public void testSetValueAtColumnColor(){
         projectTableModel.setValueAt(Color.white,0,3);
@@ -316,7 +286,6 @@ public class TestProjectTableModel {
         assertEquals(Color.white,projectTableModel.getArPrj().get(0).getColor());
 
     }
-
     @Test
     public void testSetValueAtColumnCreated(){
         Date tempDate = new Date();
@@ -327,7 +296,6 @@ public class TestProjectTableModel {
         assertEquals(tempDate,projectTableModel.getArPrj().get(0).getTimeCreated());
 
     }
-
     @Test
     public void testSetValueAtColumnTimeOverall(){
         projectTableModel.setValueAt(23,0,5);
@@ -335,7 +303,6 @@ public class TestProjectTableModel {
         assertEquals(23,projectTableModel.getArPrj().get(0).getSecondsOverall());
 
     }
-
     @Test
     public void testSetValueAtColumnTimeToday(){
         projectTableModel.setValueAt(15,0,6);
@@ -344,12 +311,7 @@ public class TestProjectTableModel {
 
     }
 
-    @Test
-    public void testSetValueAtColumnActionStartStop(){
-        projectTableModel.setValueAt("test",0,7);
 
-        assertFalse((boolean) projectTableModel.getValueAt(0,7));
-    }
 
     @Test
     public void testGetColumnCount(){
@@ -394,6 +356,39 @@ public class TestProjectTableModel {
     /*********************************************/
     /**                                         **/
     /**   FIM TESTES PARA AUMENTAR COVERAGE     **/
+    /**                                         **/
+    /*********************************************/
+
+
+    /*********************************************/
+    /**                                         **/
+    /**         TESTES DATAFLOW TESTING         **/
+    /**                                         **/
+    /*********************************************/
+
+    @Test(expected = ProjectException.class)
+    public void testRemoveProjectRowNegativeValue() throws ProjectException {
+        projectTableModel.removeProject(-1);
+    }
+
+    @Test(expected = ProjectException.class)
+    public void testRemoveProjectWithRowValueAboveExistingProjectsSize() throws ProjectException {
+        projectTableModel.removeProject(5);
+    }
+
+    @Test
+    public void testRemoveProjectWithRowValueBellowExistingProjectsSize() throws ProjectException {
+        projectTableModel.removeProject(3);
+        projectList.remove(3);
+        assertEquals("Final number of projects", 3, projectTableModel.getArPrj().size());
+        assertEquals("Final array list", projectList,projectTableModel.getArPrj());
+    }
+
+
+
+    /*********************************************/
+    /**                                         **/
+    /**      FIM TESTES DATAFLOW TESTING        **/
     /**                                         **/
     /*********************************************/
 }

@@ -33,7 +33,7 @@ public class ProjectTime {
 		return String.format("%d:%02d:%02d", s/3600, (s%3600)/60, (s%60));
 	}
 
-	//Selecionada
+
 	public static int parseSeconds(String strTime) throws ParseException {
 		if (strTime==null)
 			throw new ParseException("Invalid seconds-string", 0);
