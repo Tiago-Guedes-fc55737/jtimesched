@@ -37,6 +37,23 @@
                     <debug>false</debug>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.6.4</version>
+                <configuration>
+                    <targetClasses>
+                        <param>
+                            de.dominik_geyer.jtimesched.project.*
+                        </param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>
+                            de.dominik_geyer.jtimesched.project.*
+                        </param>
+                    </targetTests>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
