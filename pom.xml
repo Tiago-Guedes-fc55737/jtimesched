@@ -46,10 +46,16 @@
                         <param>
                             de.dominik_geyer.jtimesched.project.*
                         </param>
+                        <param>
+                            de.dominik_geyer.jtimesched.misc.*
+                        </param>
                     </targetClasses>
                     <targetTests>
                         <param>
                             de.dominik_geyer.jtimesched.project.*
+                        </param>
+                        <param>
+                            de.dominik_geyer.jtimesched.misc.*
                         </param>
                     </targetTests>
                 </configuration>

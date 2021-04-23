@@ -391,4 +391,22 @@ public class TestProjectTableModel {
     /**      FIM TESTES DATAFLOW TESTING        **/
     /**                                         **/
     /*********************************************/
+
+    /*********************************************/
+    /**                                         **/
+    /**         TESTES MUTATION TESTING         **/
+    /**                                         **/
+    /*********************************************/
+
+    @Test
+    public void testMutantGetRowCount() {
+        assertEquals(4, projectTableModel.getRowCount());
+    }
+
+
+    /*********************************************/
+    /**                                         **/
+    /**      FIM TESTES MUTATION TESTING        **/
+    /**                                         **/
+    /*********************************************/
 }
