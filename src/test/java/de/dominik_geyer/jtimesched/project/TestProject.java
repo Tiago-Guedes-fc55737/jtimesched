@@ -357,14 +357,14 @@ public class TestProject {
         assertEquals(2,project.getSecondsTodayForTesting());
     }
 
-    @Test
-    public void testGetSecondsOverallWithRunningFalse(){
-
-        project.setRunning(false);
-        project.setSecondsOverall(3);
-
-        assertEquals(3, project.getSecondsOverall());
-    }
+//    @Test
+//    public void testGetSecondsOverallWithRunningFalse(){
+//
+//        project.setRunning(false);
+//        project.setSecondsOverall(3);
+//
+//        assertEquals(3, project.getSecondsOverall());
+//    }
 
     @Test
     public void testGetSecondsOverallWithRunningTrue(){
